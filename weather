@@ -1,0 +1,27 @@
+
+
+import requests
+import json
+
+city = input()
+response = requests.get(
+    url="https://api.openweathermap.org/data/2.5/weather",
+    params={
+        'appid': '5d1c5370369029f2d3d9274729db73b2',
+        'q': city,
+    },
+)
+print(response.json())
+data = response.json()
+main = data['main']
+result = int(main['temp'])
+print(result - 273)
+wind = data['wind']
+speed = wind['speed']
+destin_grad = wind['deg']
+
+
+print(speed)
+# data = response.text
+# data=response.json()
+# json.dumps(data)
